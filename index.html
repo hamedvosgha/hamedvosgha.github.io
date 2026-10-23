@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamed Vosgha | Quantitative Finance &amp; Credit Risk</title>
+<meta name="description" content="Hamed Vosgha, PhD. Researcher in quantitative finance, credit risk and systemic risk, Department of Banking and Finance, Monash Business School, Monash University, Melbourne.">
+<meta name="author" content="Hamed Vosgha">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1116;
+    --paper:#f2efe9;
+    --panel:#15191f;
+    --line:#2a313a;
+    --muted:#9aa4b1;
+    --accent:#4a9db8;      /* deep teal, echoes tail-dependence / water */
+    --accent-dim:#2f6b80;
+    --accent-2:#c8a24b;    /* muted gold for numerals */
+    --paper-soft:#e7e2d8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+  /* ---------- hero ---------- */
+  header{
+    padding:72px 0 40px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:22px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:clamp(38px,9vw,68px);
+    line-height:1.02;
+    letter-spacing:-.01em;
+    margin-bottom:20px;
+  }
+  h1 em{font-style:italic;color:var(--accent)}
+  .lede{
+    font-size:clamp(16px,4.4vw,19px);
+    color:var(--muted);
+    max-width:620px;
+    margin-bottom:30px;
+  }
+  .lede strong{color:var(--paper);font-weight:500}
+  .links{display:flex;flex-wrap:wrap;gap:12px}
+  .links a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    padding:9px 15px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    color:var(--muted);
+    transition:.18s;
+  }
+  .links a:hover{border-color:var(--accent);color:var(--paper)}
+
+  /* ---------- section frame ---------- */
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:30px}
+  .sec-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;color:var(--accent-2);
+  }
+  .sec-title{
+    font-family:'Fraunces',serif;
+    font-weight:500;font-size:26px;letter-spacing:-.01em;
+  }
+
+  /* ---------- about ---------- */
+  .about p{color:#cdd4dc;max-width:640px;margin-bottom:16px;font-size:16.5px}
+  .about p:last-child{margin-bottom:0}
+
+  /* ---------- projects ---------- */
+  .grid{display:grid;gap:16px}
+  .card{
+    display:block;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:22px 22px 20px;
+    transition:.18s;
+  }
+  .card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .card .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:12px;display:block;
+  }
+  .card h3{
+    font-family:'Fraunces',serif;font-weight:500;font-size:21px;
+    margin-bottom:8px;letter-spacing:-.01em;
+  }
+  .card p{color:var(--muted);font-size:14.5px;margin-bottom:14px}
+  .card .go{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+    color:var(--accent-2);
+  }
+
+  /* ---------- publications ---------- */
+  .pub{
+    padding:18px 0;border-top:1px solid var(--line);
+    display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+  }
+  .pub:first-of-type{border-top:none}
+  .pub .yr{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent-2);
+    padding-top:2px;
+  }
+  .pub .body h4{font-weight:500;font-size:16px;margin-bottom:4px}
+  .pub .body .venue{color:var(--muted);font-size:14px}
+  .pub .body .venue em{color:var(--accent);font-style:normal}
+
+  /* ---------- teaching strip ---------- */
+  .teach{display:grid;gap:14px}
+  .teach .row{
+    display:grid;grid-template-columns:auto 1fr;gap:16px;
+    padding:14px 0;border-top:1px solid var(--line);
+  }
+  .teach .row:first-child{border-top:none}
+  .teach .where{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);white-space:nowrap}
+  .teach .what{color:#cdd4dc;font-size:15px}
+  .teach .what span{color:var(--muted);font-size:13.5px;display:block;margin-top:2px}
+
+  /* ---------- footer ---------- */
+  footer{padding:50px 0 70px;text-align:left}
+  footer .big{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    font-size:clamp(22px,6vw,34px);margin-bottom:20px;letter-spacing:-.01em;
+  }
+  footer .contact{display:flex;flex-wrap:wrap;gap:22px}
+  footer .contact a{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);
+    border-bottom:1px solid transparent;padding-bottom:2px;transition:.18s;
+  }
+  footer .contact a:hover{color:var(--accent);border-color:var(--accent)}
+
+  ::selection{background:var(--accent);color:var(--ink)}
+  @media (max-width:560px){
+    .pub{grid-template-columns:1fr;gap:4px}
+    .teach .row{grid-template-columns:1fr;gap:4px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Quantitative Finance · Credit &amp; Systemic Risk · Monash University</div>
+    <h1>Hamed Vosgha</h1>
+    <p class="lede">I build <strong>credit risk and systemic risk models</strong> for banking systems: scorecards, IFRS 9 expected credit loss, copula dependence, and stochastic optimisation. PhD in Business Analytics, with published work on Australia's regulated banks. Affiliated with the Department of Banking and Finance, Monash Business School.</p>
+    <div class="links">
+      <a href="https://github.com/hamedvosgha">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/hamed-vosgha">LinkedIn ↗</a>
+      <a href="https://orcid.org/0009-0009-3858-0235">ORCID ↗</a>
+      <a href="#work">Selected work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section class="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">About</span></div>
+    <p>I completed a PhD in Business Analytics at RMIT, building two-stage stochastic programming for bank balance-sheet optimisation under Basel III, calibrated to real Australian bank data. My research sits at the intersection of quantitative finance and regulation: systemic risk measurement, credit contagion across portfolios, and how capital behaves under stress.</p>
+    <p>Alongside research I teach quantitative and analytics subjects at RMIT and Monash, and deliver an advanced analytics program through Mentem by UNSW. I am affiliated with the Department of Banking and Finance at Monash Business School. Before academia I spent a decade in industry: credit risk and cost planning at Toyota, then data and AI delivery leadership at the Fair Work Commission.</p>
+    <p>This site collects the applied work: models you can run, not just papers you can cite.</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Selected work</span></div>
+    <div class="grid">
+      <a class="card" href="https://github.com/hamedvosgha/NonRetailPD">
+        <span class="tag">PD Modelling</span>
+        <h3>Non-Retail PD</h3>
+        <p>Probability-of-default modelling for non-retail exposures, the estimation backbone behind IFRS 9 provisioning and regulatory capital.</p>
+        <span class="go">github.com/hamedvosgha/NonRetailPD →</span>
+      </a>
+      <a class="card" href="https://github.com/hamedvosgha/Copula">
+        <span class="tag">Dependence Modelling</span>
+        <h3>Copula Dependence</h3>
+        <p>Copula-based tail dependence between systemic risk measures and realised capital erosion. Student-t and Archimedean fits, tail-dependence estimation, bootstrap confidence intervals.</p>
+        <span class="go">github.com/hamedvosgha/Copula →</span>
+      </a>
+      <a class="card" href="#" data-ecl>
+        <span class="tag">In progress</span>
+        <h3>IFRS 9 ECL Showcase</h3>
+        <p>End-to-end credit risk pipeline: application scorecard, PD/LGD/EAD, staging, an Australian macro overlay, and interactive stress-scenario expected credit loss. Live app coming soon.</p>
+        <span class="go">Streamlit app, building →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Research</span></div>
+    <div class="pub">
+      <div class="yr">2018</div>
+      <div class="body">
+        <h4>Oil price and equity-market dependence structures</h4>
+        <div class="venue">Published · <em>Economic Modelling</em> · ABDC A</div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="yr">A-rank</div>
+      <div class="body">
+        <h4>Systemic and credit risk in Australian D-SIBs</h4>
+        <div class="venue">Three ABDC A-ranked publications spanning credit risk, systemic risk, and dependence modelling.</div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="yr">2026</div>
+      <div class="body">
+        <h4>Stochastic optimisation of bank balance sheets under Basel III</h4>
+        <div class="venue">PhD thesis · calibrated to Australian bank disclosures · under journal review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Teaching</span></div>
+    <div class="teach">
+      <div class="row">
+        <div class="where">RMIT</div>
+        <div class="what">AI for Business Applications · Advanced Business Analytics<span>School of Information Systems · 2024 to present</span></div>
+      </div>
+      <div class="row">
+        <div class="where">Monash</div>
+        <div class="what">Optimisation for Business (Masters)<span>Department of Econometrics &amp; Business Statistics · 2025 to present</span></div>
+      </div>
+      <div class="row">
+        <div class="where">UNSW · Mentem</div>
+        <div class="what">AI &amp; Advanced Analytics program<span>Industry cohort</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="big"><em>Hamed Vosgha</em></div>
+    <div class="contact">
+      <a href="https://github.com/hamedvosgha">github.com/hamedvosgha</a>
+      <a href="https://www.linkedin.com/in/hamed-vosgha">LinkedIn</a>
+      <a href="https://orcid.org/0009-0009-3858-0235">ORCID</a>
+      <a href="mailto:hamed.vosgha@monash.edu">hamed.vosgha@monash.edu</a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
